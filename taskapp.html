@@ -21,10 +21,11 @@
 							count++;
 							var a = document.getElementById("val").value;
 							 count++;
-							 if(a)
-							 	swal("Task added!", "One new task added", "success");
+							 if(a){
+							 swal("Task added!", "One new task added", "success");
 							document.getElementById("result").innerHTML += '<li style="font-size: 20px;" id="rem'+id+'" >'+a+'<button class="btn bt btn-success"  id="rem1'+id+'" onclick="complete('+id+')"> completed <i class="fa fa-check" aria-hidden="true"></i></button>'+"</li>"
-						}
+							 }
+				}
 		function complete(id){
 							var b = document.getElementById("rem"+id).innerHTML;
 							document.getElementById("result1").innerHTML += '<li style="font-size: 20px;" id="rem2'+id+'">'+b+'<button class="btn bt btn-danger" id="rem3'+id+'" onclick="notcompleted('+id+')"> Didnt complete  <i class="fas fa-times"></i></button>'+"</li>"
