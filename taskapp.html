@@ -25,6 +25,11 @@
 							 swal("Task added!", "One new task added", "success");
 							document.getElementById("result").innerHTML += '<li style="font-size: 20px;" id="rem'+id+'" >'+a+'<button class="btn bt btn-success"  id="rem1'+id+'" onclick="complete('+id+')"> completed <i class="fa fa-check" aria-hidden="true"></i></button>'+"</li>"
 							 }
+							else{
+								swal({text :"We can't read minds! Enter something in the text field ",
+									icon :"warning"
+								})
+							}
 				}
 		function complete(id){
 							var b = document.getElementById("rem"+id).innerHTML;
