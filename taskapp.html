@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" type="text/css" href="task.css">
+	<link href="https://fonts.googleapis.com/css?family=Chela+One" rel="stylesheet">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+</head>
+<body>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+	<script type="text/javascript">
+
+		var count=1;
+		function show(){
+							id=count;
+							count++;
+							var a = document.getElementById("val").value;
+							 count++;
+							 if(a)
+							 	swal("Task added!", "One new task added", "success");
+							document.getElementById("result").innerHTML += '<li style="font-size: 20px;" id="rem'+id+'" >'+a+'<button class="btn bt btn-success"  id="rem1'+id+'" onclick="complete('+id+')"> completed <i class="fa fa-check" aria-hidden="true"></i></button>'+"</li>"
+						}
+		function complete(id){
+							var b = document.getElementById("rem"+id).innerHTML;
+							document.getElementById("result1").innerHTML += '<li style="font-size: 20px;" id="rem2'+id+'">'+b+'<button class="btn bt btn-danger" id="rem3'+id+'" onclick="notcompleted('+id+')"> Didnt complete  <i class="fas fa-times"></i></button>'+"</li>"
+							document.getElementById("rem"+id).remove();
+							document.getElementById("rem1"+id).remove();
+
+
+							}
+		function notcompleted(id){
+							var c = document.getElementById("rem2"+id).innerHTML;
+							count++;
+							document.getElementById("result").innerHTML += '<li style="font-size: 20px;" id="rem'+count+'" >'+c+'<button class="btn bt btn-success" id="rem1'+count+'" onclick="complete('+count+')"> completed <i class="fa fa-check" aria-hidden="true"></i></button>'+"</li>"
+							document.getElementById("rem2"+id).remove();
+							document.getElementById("rem3"+id).remove();
+
+
+		}
+	</script>
+	<div class="container cont">
+		<h1 style="color: #fff">TASK MANAGER</h1>
+		<h5 style="color: #fff" align="center">Tasks that are completed and pending</h5>
+	</div>
+	<div class="container con">
+		<input class="inp" type="text" id="val" required="must fill" placeholder="Enter the task" name="">     <button class="btn btn-info" onclick="show()">
+  Add task  <i class="fa fa-search" aria-hidden="true"></i></button>
+		
+	</div>
+	<div class="container co">
+		<div class="row">
+			<div class=" col col-6">
+				<h3 align="center" style="padding-bottom:20px; color: green"><u>TO DO</u></h3>
+				<ul id="result"></ul>
+				
+			</div>
+			<div class=" col col-6" >
+				<h3 align="center"style="padding-bottom:20px; color: red"><u>COMPLETED</u></h3>
+				<ul id="result1">
+					
+				</ul>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
